@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>+</title>
+    <script>
+        //랜덤 k 생성 함수
+        function getRandomIntInclusive(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        //table 생성
+        function makeTable(a1, a2) {
+            const row = parseInt(a1);
+            const col = parseInt(a2);
+            
+            var k = getRandomIntInclusive(a1, a2);
+            document.write("N*M+K : "+(row*col+k));
+
+            document.write('<table border="1" style="color:blue">');
+            for (let i = 0; i < row; i++) {
+                document.write('<tr>');
+                for (let j = 0; j < col; j++)  {
+                    document.write('<td><input type="button" value=>');
+                    document.write((i*col+j+1));
+                    document.write('</td>');
+                }
+                document.write('</tr>')
+            }
+            document.write('</table>');
+        }
+
+    </script>
+</head>
+
+<body style="background-color:black">
+    <h6 style="color:white">N입력 : </h6><input type="number" id="txt1">
+    <h6 style="color:white">M입력 : </h6><input type="number" id="txt2">
+    <button onclick="makeTable(txt1.value, txt2.value)">enter</button>
+    <hr/>
+    <div id="area"></div>
+</body>
+</html>
